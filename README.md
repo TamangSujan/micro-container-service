@@ -12,3 +12,7 @@ Eureka: podman run -p 8761:8761 eurekaserver
 View: podman run -p 8000:8000 -e EUREKA_DEFAULT_ZONE=http://192.168.1.101:8761/eureka/ -e LOGIN_SERVICE=http://LOGINSERVICE -e DATA_SERVICE=http://DATASERVICE viewservi>
 Login: podman run -p 8081:8081 -e EUREKA_DEFAULT_ZONE=http://192.168.1.101:8761/eureka -e PORT=8081 --net=host loginservice
 Data: podman run -p 8082:8082 --net=host  -e EUREKA_DEFAULT_ZONE=http://192.168.1.101:8761/eureka -e PORT=8082 dataservice
+
+For 192.168.1.101, You can put your own IP Address.
+
+Note: It has been tested only on same machine.
