@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: VIEWSERVICE
+  profiles:
+    active: dev
+server:
+  port: 8000
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_DEFAULT_ZONE:http://localhost:8761/eureka}
+
+app:
+  route:
+    loginservice: ${LOGIN_SERVICE:LOGINSERVICE}
+    dataservice: ${DATA_SERVICE:DATASERVICE}
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaserver/eureka
